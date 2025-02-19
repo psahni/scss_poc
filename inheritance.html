@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sass Project</title>
+  <style>
+      div {
+        border: 1px solid black;
+        padding: 4px 12px;
+      }
+
+      .two {
+        --test: 20px;
+        font-size: var(--test);
+      }
+
+      .three {
+        --test: 2em;
+        font-size: var(--test);
+      }
+  </style>
+</head>
+<body>
+  <div class="one">
+    <p>div 1 with default font size: 16px</p>
+    <div class="two">
+      <p>div 2 with its variable font size: 20px</p>
+      <div class="three">
+        <p>div 3 with its variable font size: 2em</p>
+      </div>
+      <div class="four">
+        <p>div 4 with font size inherited from its parent (div 2): 20px</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
