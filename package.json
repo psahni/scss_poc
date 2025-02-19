@@ -3,18 +3,26 @@
   "version": "1.0.0",
   "description": "A Node.js project with Sass",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "sass": "node-sass src/scss/main.scss dist/css/style.css",
-    "sass:watch": "node-sass src/scss/main.scss dist/css/style.css --watch",
-    "build": "node-sass src/scss/main.scss dist/css/style.css --output-style compressed",
-    "dev": "nodemon --watch src/scss -e scss -x \"npm run sass\" & python3 -m http.server 4000"
+    "sass": "node-sass src/scss/style.scss dist/css/style.css",
+    "sass:watch": "node-sass src/scss/style.scss dist/css/style.css --watch",
+    "build": "node-sass src/scss/style.scss dist/css/style.css --output-style compressed",
+    "dev": "nodemon --watch src/scss -e scss -x \"npm run sass\" & python3 -m http.server 4000",
+    "server": "python3 -m http.server 4000"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^9.0.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-sass": "^6.0.0",
+    "gulp-sourcemaps": "^3.0.0",
     "live-server": "^1.2.2",
     "node-sass": "^9.0.0",
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.9",
+    "sass": "^1.85.0"
   }
 }
