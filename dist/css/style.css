@@ -267,6 +267,32 @@ h2 {
   .btn--outline:hover {
     background-color: rgba(52, 152, 219, 0.1); }
 
+/*
+  Here, we've declared two variables, --global-color and --global-font-size, with global scope. 
+  These variables can now be used anywhere in your stylesheets, providing consistent and easily updated 
+  styling across the entire document.
+*/
+:root {
+  --global-color: #3498db;
+  --global-font-size: 16px; }
+
+/* Local Scope */
+.section-container {
+  --section-background: #f2f2f2;
+  --section-content-color: #333;
+  --section-text-color: #ae5353; }
+
+.section-container .section-content {
+  background-color: var(--section-background);
+  color: var(--section-content-color); }
+
+.global-element {
+  color: var(--global-color);
+  font-size: var(--global-font-size); }
+
+.section-element {
+  color: var(--section-text-color); }
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
