@@ -46,3 +46,6 @@ export function compileSass() {
 export function watch() {
   watch('src/scss/**/*.scss', compileScss);
 }
+
+
+// gulp compileSass

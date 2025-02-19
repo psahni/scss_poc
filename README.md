@@ -9,3 +9,5 @@
 - Main page - http://localhost:4000
 
 - Card component - http://localhost:4000/card.html
+
+- Run `gulp compileSass` to compile sass
