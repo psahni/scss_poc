@@ -1,0 +1,96 @@
+.card {
+  background-color: white;
+  border-radius: $border-radius;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: $spacing-unit * 3;
+  margin-bottom: $spacing-unit * 4;
+  
+  &__header {
+    border-bottom: 1px solid lighten($text-color, 60%);
+    padding-bottom: $spacing-unit * 2;
+    margin-bottom: $spacing-unit * 3;
+  }
+  
+  &__title {
+    font-size: 1.5rem;
+    margin-bottom: $spacing-unit;
+  }
+  
+  &__body {
+    p {
+      margin-bottom: $spacing-unit * 2;
+    }
+  }
+  
+  &__footer {
+    @include flex-center;
+    justify-content: flex-end;
+    margin-top: $spacing-unit * 3;
+  }
+  
+  &--featured {
+    border-left: 4px solid $secondary-color;
+  }
+}
+
+.card-responsive {
+  padding: 1rem;
+  margin: 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+  // Mobile first - default styles for small screens
+  width: 100%;
+  
+  // Tablet screens
+  @include breakpoint(medium) {
+    width: calc(50% - 2rem);
+    float: left;
+  }
+  
+  // Desktop screens
+  @include breakpoint(large) {
+    width: calc(33.333% - 2rem);
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    
+    @include breakpoint(medium) {
+      font-size: 1.5rem;
+    }
+    
+    @include breakpoint(large) {
+      font-size: 1.8rem;
+    }
+  }
+
+  &__content {
+    margin-top: 1rem;
+    
+    @include breakpoint(medium) {
+      line-height: 1.6;
+    }
+  }
+}
+
+// Buttons
+.btn {
+  &--primary {
+    @include button-style($primary-color, white);
+  }
+  
+  &--secondary {
+    @include button-style($secondary-color, white);
+  }
+  
+  &--outline {
+    @include button-style(transparent, $primary-color);
+    border: 1px solid $primary-color;
+    
+    &:hover {
+      background-color: rgba($primary-color, 0.1);
+    }
+  }
+}

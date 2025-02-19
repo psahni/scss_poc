@@ -1,0 +1,20 @@
+{
+  "name": "my-sass-project",
+  "version": "1.0.0",
+  "description": "A Node.js project with Sass",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass src/scss/main.scss dist/css/style.css",
+    "sass:watch": "node-sass src/scss/main.scss dist/css/style.css --watch",
+    "build": "node-sass src/scss/main.scss dist/css/style.css --output-style compressed",
+    "dev": "nodemon --watch src/scss -e scss -x \"npm run sass\" & python3 -m http.server 4000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "node-sass": "^9.0.0",
+    "nodemon": "^3.1.9"
+  }
+}
