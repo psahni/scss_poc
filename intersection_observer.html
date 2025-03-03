@@ -1,0 +1,84 @@
+<html>
+  <head>
+     <!-- we use jQuery to manipulate the DOM easily -->
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.js"></script>
+    <style>
+          body {
+            padding: 20px 40px;
+            margin: 0px auto;
+            max-width: 1440px;
+            background-color: bisque;
+          }
+
+          @keyframes example {
+            from {background-color: rgb(240, 240, 240);}
+            to {background-color: yellow;}
+          }
+
+          .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            min-height: 110vh;
+          }
+
+          .content {
+            height: 90vh;
+            width: 70vw;
+            display: grid;
+            place-content: center;
+            background-color: rgb(240, 240, 240);
+            animation-name: example;
+            animation-duration: 4s;
+          }
+    </style>
+    <script>
+      $(document).ready(() => {
+        // Select the element that will trigger loading more content
+        const loadMoreTrigger = document.querySelector('#load-more');
+        const content = ["Content #2", "Content #3", "You are done!"];
+        let index = 0; // This can be used to fetch data in chunks using pagination
+
+        const loadMoreCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (content[index]) {
+                        loadMoreContent();
+                    } else {
+                        // Stop observing the trigger element if all content has been loaded
+                        observer.unobserve(entry.target);
+                    }
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(loadMoreCallback, {
+            root: null, // Use the browser's viewport as the root
+            rootMargin: '0px', // No margin around the root
+            threshold: 1.0 // Trigger the callback when 100% of the target is visible
+        });
+
+        observer.observe(loadMoreTrigger);
+
+        const loadMoreContent = () => {
+            $('.main-content').append(`<div class="content">${content[index]}</div>`);
+            index++; // Increment the index to load the next piece of content
+        };
+      });
+    </script>
+  </head>
+  <body>
+    <div class="main-content">
+      <!-- Initial content that will be displayed -->
+      <div class="content">Content #1 (initial)</div>
+    </div>
+    <!-- Load more trigger element -->
+    <div id="load-more">LOAD MORE</div>
+  </body>
+
+
+ 
+</html>
