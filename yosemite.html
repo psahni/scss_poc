@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yosemite Hero Section</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        .inline-block {
+          display: inline-block;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+
+        .hero-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-background {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: auto;
+            height: auto;
+            object-fit: cover;
+            opacity: 0.7;
+        }
+
+        .hero-content {
+          position: relative;
+          z-index: 2;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 34em;
+          padding: 20px;
+          top: -35rem;
+        }
+
+        .top-left {
+          position: relative;
+          top: calc(100% - 6.5rem);
+        }
+
+        .video-controls {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .video-controls svg {
+            width: 5rem;
+            height: 5rem;
+            fill: white;
+        }
+
+        .legacy-text {
+            font-size: 12px;
+            margin-top: 8px;
+            text-transform: uppercase;
+        }
+
+        .center-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-80%, -50%);
+            text-align: center;
+        }
+
+        .yosemite-logo {
+            display: flex;
+            align-items: center;
+            gap: 0;
+        }
+
+        .yosemite-logo svg {
+            width: 40px;
+            height: 40px;
+        }
+
+        .yosemite-title {
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        .yosemite-coordinates {
+            font-size: 16px;
+            opacity: 0.7;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+
+        .play-btn {
+          display: none;
+        }
+
+        @media only screen and (max-width: 600px) {
+          .yosemite-coordinates {
+            display: flex;
+            flex-direction: column;
+          }
+
+          .yosemite-logo {
+            gap: 0;
+          }
+         .yosemite-logo .yosemite-title {
+            font-size: 22.7px;
+            font-weight: bolder;
+            margin: 0;
+          }
+
+          .yosemite-logo img {
+            width: 21px;
+            height: 18px;
+          }
+/*         
+          .hero-content {
+            position: relative;
+            top: -45rem;
+            height: 75%;
+          } */
+
+          .center-content {
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+          }
+        }
+    </style>
+</head>
+<body>
+  <div class="hero-container">
+    <video autoplay loop muted class="video-background">
+        <source src="/public/video.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-content">
+      <div class="center-content">
+        <div class="yosemite-logo">
+          <img src="/public/images/icon.png" alt="Yosemite Logo">
+          <span class="yosemite-title">YOSEMITE</span>
+          <div class="yosemite-coordinates"> 
+            <span class="inline-block">37.8651° N </span>
+            <span class="inline-block">119.5383° W</span>
+          </div>
+        </div>
+      </div>
+      <div class="top-left">
+        <div class="video-controls">
+          <!--Play pause button-->
+          <svg class="pause-btn" width="68" height="43" viewBox="0 0 68 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="Group 2147249343">
+              <g id="Group 2147249333">
+                <g id="Group 2147249344">
+                  <g id="Group 2134097542">
+                    <rect
+                      id="Rectangle 1134258867"
+                      x="68"
+                      y="43.001"
+                      width="68"
+                      height="43"
+                      rx="14"
+                      transform="rotate(-180 68 43.001)"
+                      fill="#F9F9E4"
+                    />
+                  </g>
+                  <g id="Group 2147249332">
+                    <rect
+                      id="Rectangle 1134258769"
+                      x="26.7209"
+                      y="14.001"
+                      width="3.31445"
+                      height="16.7213"
+                      rx="1.65723"
+                      fill="#100E08"
+                    />
+                    <rect
+                      id="Rectangle 1134258770"
+                      x="36.0354"
+                      y="14.001"
+                      width="3.31445"
+                      height="16.7213"
+                      rx="1.65723"
+                      fill="#100E08"
+                    />
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg>
+          <img class="play-btn" src="/public/images/play.png" alt="Play">
+        </div>
+        <div class="legacy-text">No Limits. Just Action | 2:06 </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(document).ready(() => {
+      const video = document.querySelector('video');
+      
+      $(".video-controls").click(() => {
+        if (video.paused) {
+          video.play();
+          $(".play-btn").hide();
+          $(".pause-btn").show();
+        } else {
+          video.pause();
+          $(".play-btn").show();
+          $(".pause-btn").hide();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
