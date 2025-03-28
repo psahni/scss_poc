@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bags & Packs Card</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        .card {
+            position: relative;
+            width: 380px;
+            height: 550px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .video-container, .video-container video {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .video-container video {
+          object-fit: cover;
+          position: relative;
+        }
+
+        .card-overlay__initial {
+          position: relative;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          padding: 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background: black;
+          color: white;
+          width: 340px;
+        }
+        .card-overlay__left {
+          display: flex;
+          justify-content: space-between;
+        }
+
+        .card-overlay__right {
+          display: flex;
+          align-items: center;
+          margin-right: 2rem;
+        }
+
+        .card-text {
+          font-size: 1rem;
+        }
+
+        .card-arrow {
+          font-size: 1.5rem;
+          text-decoration: none;
+          color: white;
+        }
+
+        .orange-line {
+          background-color: #F04A23;
+          height: 1px;
+          width: 2rem;
+          border: none;
+          margin-right: 0.5rem;
+        }
+    
+        .card-overlay__hover {
+          position: relative;
+          opacity: 0;
+          left: 0;
+          bottom: 0;
+        }
+
+        .card-overlay__hover .card-arrow {
+          color: #F04A23
+        }
+
+        .card-overlay__hover .orange-line {
+          margin-left: 1rem;
+          width: 1.5rem;
+        }
+
+        .card-overlay__hover-left {
+          display: flex;
+          justify-content: space-between;
+          padding-top: 1rem;
+        }
+
+        .card-overlay__hover-left .text {
+          display: flex;
+        }
+
+        .card-overlay__hover-right {
+          width: 16rem;
+          padding-left: 1rem;
+          padding-bottom: 1rem;
+          top: -3rem;
+        }
+
+        .hyphen {
+          font-size: 20px;
+          display: inline-block;
+          transform: scaleX(3);
+          transform-origin: left center;
+        }
+
+        .card:hover .card-overlay__hover {
+          opacity: 1;
+          transition: opacity 0.9s ease-out;
+        }
+
+        .card:hover .card-overlay__hover-right {
+          top: 0;
+        }
+
+        .card:hover .card-overlay__initial {
+          display: none;
+          transition: opacity 0.7s ease-in;
+        }
+    </style>
+</head>
+<body>
+    <div class="card" attr-link="http://localhost:4000/index.html">
+        <!-- <img src="/public/images/photo-orange.jpeg" alt="Backpack" class="card-image"> -->
+        <div class="video-container">
+          <video src="/public/video.mp4" class="card-image" loop muted></video>
+        </div>
+        <div class="card-overlay__initial">
+          <div class="card-overlay__left">
+            <hr class="orange-line"/>
+            <span class="card-text">BAGS + PACKS</span>
+          </div>
+          <div class="card-overlay__right">
+            <a href="#" class=" card-arrow">→</a>
+          </div>
+        </div>
+        <div class="card-overlay__hover">
+          <div class="card-overlay__hover-left">
+            <div class="text">
+              <hr class="orange-line"/>
+              <span class="card-text">APPAREL</span>
+            </div>
+            <div class="card-overlay__right">
+              <a href="#" class="card-arrow">→</a>
+            </div>
+          </div>
+          <div class="card-overlay__hover-right">
+            Trusted by adventures and pros alike <span class="hyphen">&#8208;</span>
+            our best sellers are build for every mission and any terrain
+          </div>
+        </div>
+    </div>
+</body>
+<script>
+  $(document).ready(() => {
+    const video = document.querySelector('video');
+    $(".card").hover(() => {
+      video.play();
+    }, function() {
+      video.pause();
+    });
+
+    $(".card").click(() => {
+      window.location.href = $(".card").attr("attr-link");
+    });
+  });
+</script>
+</html>
