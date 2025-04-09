@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bounce Up Hero</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: #0f2027;
+      background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+      color: #fff;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      animation: slideIn 1s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes slideIn {
+      0% { transform: translateX(-100%); }
+      100% { 
+        opacity: 1;
+        transform: translateX(0); }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2rem;
+        padding: 0 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <h1 class="animate">Welcome to Bounce World!</h1>
+  </section>
+
+</body>
+</html>

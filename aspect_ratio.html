@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Aspect Ratio</title>
+    <link rel="stylesheet" href="dist/css/style.css">
+    <style>
+      .responsive-image {
+        width: 100%;
+        max-width: 1200px;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        border-radius: clamp(4px, 1vw, 16px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Responsive Image Using One Image:</h2>
+      <picture>
+        <img
+          src="/public/images/bike_large.png"
+          alt="Banner"
+          class="responsive-image"
+        />
+      </picture>
+      <!--<div style="width: 100%;">
+        <img
+          src="/public/images/ktm_large.png"
+          style="width: 100%;"
+          srcset="
+            /public/images/ktm_small.png 100w,
+            /public/images/ktm_medium.png 400w,
+            /public/images/ktm_large.png 500w"
+          "
+          sizes="(min-width: 320px and max-width: 639px) 100vw, 
+                (min-width: 640px and max-width: 1439px) 100vw, 900px, 
+                1440px"
+          alt="Responsive Example"
+        />
+      </div>
+      -->
+      <div>
+        <h2>Multiple Images:</h2>
+        <picture>
+          <source media="(max-width: 480px)" srcset="/public/images/ktm_small.png" />
+          <source media="(max-width: 768px)" srcset="/public/images/ktm_medium.png" />
+          <img style="width: 100%;" src="/public/images/ktm_large.png" alt="Someone jumping on a hike" />
+        </picture>
+      </div>
+    </div>
+  </body>
+</html>

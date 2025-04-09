@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+      body {
+        background: #0f2027;
+        background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+        color: #fff;
+        font-family: Arial, sans-serif;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .animate__animated {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+      }
+      h1 {
+        font-size: 3rem;
+        text-align: center;
+      }
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 2rem;
+          padding: 0 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="animate__animated" animation="bounceIn">
+      <span>Bounce In: </span>
+      <h1>Welcome to Bounce World!</h1>
+    </div>
+    <div class="animate__animated" animation="fadeIn" delay="0.5s">
+      <span>Fade In: </span>
+      <h1>Welcome to Bounce World!</h1>
+    </div>
+    <div class="animate__animated" animation="fadeInDown">
+      <span>Fade In Down: </span>
+      <h1>Welcome to Bounce World!</h1>
+    </div>
+    <div class="animate__animated" animation="slideInUp">
+      <span>slideInUp: </span>
+      <h1>Welcome to Bounce World!</h1>
+    </div>
+    <div class="animate__animated" animation="bounceIn" delay="0.5">
+      <span>Delay Bounce: </span>
+      <h1>Welcome to Bounce World!</h1>
+    </div>
+    <div class="animate__animated" animation="pulse">
+      <span>Pulse: </span>
+      <h1>Welcome to Bounce World!</h1>
+    </div>
+    <div class="animate__animated" animation="zoomIn">
+      <span>ZoomIn: </span>
+      <h1>Welcome to Bounce World!</h1>
+    </div>
+    <div class="animate__animated" animation="rubberBand">
+      <span>rubberBand: </span>
+      <h1>Welcome to Bounce World!</h1>
+      <!-- <h1 class="callout-title callout-title animate__animated animate__rubberBand">Welcome to Bounce World!</h1> -->
+    </div>
+    <div class="animate__animated" animation="heartBeat">
+      <span>Heart Beat: </span>
+      <h1>Welcome to Bounce World!</h1>
+    </div>
+    <div class="animate__animated" animation="flipInX">
+      <span>flipInX: </span>
+      <h1>Welcome to Bounce World!</h1>
+    </div>
+    <div class="animate__animated" animation="shakeX">
+      <span>Shake X: </span>
+      <h1>Welcome to Bounce World!</h1>
+    </div>
+    <div class="animate__animated" animation="shakeY">
+      <span>Shake Y: </span>
+      <h1>Welcome to Bounce World!</h1>
+    </div>
+  </body>
+  <script>
+    const elements = document.querySelectorAll('.animate__animated');
+    elements.forEach((element) => {
+      element.addEventListener('click', () => {
+        console.log('Animation clicked!', element);
+        const animation = element.getAttribute('animation');
+        element.classList.add('animate__' + animation);
+        const delay = element.getAttribute('delay') || 0;
+        if (delay != 0) {
+          element.classList.add('animate__delay-' + delay+'s');
+        }
+        setTimeout(() => {
+          if (delay) {
+            element.classList.remove('animate__delay-' + delay+'s');
+          }
+          element.classList.remove('animate__' + animation);
+        }, 1000);
+      });
+    });
+  </script>
+</html>

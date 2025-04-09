@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hero Section</title>
+  <style>
+    /* Reset some styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    .hero {
+      height: 100vh;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      flex-wrap: wrap;
+    }
+
+    .hero h1 {
+      font-size: 5rem;
+      animation: fadeIn 1s ease-in-out forwards;
+      opacity: 0; /* Initial state for fade-in */
+      width: 100%;
+    }
+
+    .hero h3 {
+      font-size: 2rem;
+      animation: fadeIn 1s ease-in-out forwards;
+      opacity: 0; /* Initial state for fade-in */
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive for small screens */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2rem;
+        padding: 0 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <h1>Welcome to Our Website</h1>
+    <h3>Welcome to Our Website</h3>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Glow Animation</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f0f0f;
+      color: white;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: radial-gradient(circle at center, #111 0%, #000 100%);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: #fff;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
+      }
+      to {
+        text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff, 0 0 40px #0ff;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2rem;
+        padding: 0 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <h1 class="glow">Welcome to the Glow Zone</h1>
+  </section>
+
+</body>
+</html>

@@ -11,3 +11,7 @@
 - Card component - http://localhost:4000/card.html
 
 - Run `gulp compileSass` to compile sass
+
+-- Animation Library
+
+Example: https://github.com/animate-css/animate.css/blob/main/source/attention_seekers/flash.css

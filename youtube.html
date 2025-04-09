@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Section</title>
+    <style>
+        .video-section {
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+            background: url('https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg') no-repeat center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 10px;
+            position: relative;
+        }
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .play-button::before {
+            content: '\25B6';
+            font-size: 40px;
+            color: white;
+        }
+
+        #videoModal {
+            display: none;
+        }
+
+        .modal {
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            width: 100%;
+            height: 100%;
+            background: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .modal-content iframe {
+            width: 100%;
+            height: 100%;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-section" onclick="openModal()">
+        <div class="play-button"></div>
+    </div>
+
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <iframe id="videoFrame" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById("videoModal").style.display = "flex";
+            document.getElementById("videoFrame").src = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1";
+        }
+
+        function closeModal() {
+            document.getElementById("videoModal").style.display = "none";
+            document.getElementById("videoFrame").src = "";
+        }
+    </script>
+</body>
+</html>
