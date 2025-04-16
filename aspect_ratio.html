@@ -6,26 +6,41 @@
     <title>Image Aspect Ratio</title>
     <link rel="stylesheet" href="dist/css/style.css">
     <style>
-      .responsive-image {
+      /* .responsive-image {
         width: 100%;
         max-width: 1200px;
         aspect-ratio: 16 / 9;
         object-fit: cover;
         border-radius: clamp(4px, 1vw, 16px);
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      } */
+
+
+      .container-aspect-ratio-16-9-fixed-height {
+        height: 500px;
+        width: max(320px, 100%);
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          object-position: center center;
+        }
       }
     </style>
   </head>
   <body>
     <div class="container">
       <h2>Responsive Image Using One Image:</h2>
-      <picture>
+      <div class="container-aspect-ratio-16-9-fixed-height">
         <img
           src="/public/images/bike_large.png"
           alt="Banner"
-          class="responsive-image"
+          class=""
         />
-      </picture>
+      </div>
       <!--<div style="width: 100%;">
         <img
           src="/public/images/ktm_large.png"

@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Responsive Cropped Image</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .image-container {
+      width: 800px;
+      height: 500px;
+      margin: auto;
+    }
+
+    .responsive-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Mobile style: Crop to center part */
+    @media (max-width: 600px) {
+      .image-container {
+        width: 100%;
+        height: 300px; /* Keep consistent height or change if needed */
+        overflow: hidden;
+      }
+
+      .responsive-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Responsive Center-Cropped Image</h1>
+
+  <div class="image-container">
+    <img
+      src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=80"
+      alt="Mountain landscape"
+      class="responsive-image"
+    >
+  </div>
+
+  <p>Image is cropped to the center on mobile.</p>
+
+</body>
+</html>
