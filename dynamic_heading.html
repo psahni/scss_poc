@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dynamic Font Size Heading</title>
+  <style>
+    .dynamic-heading {
+      width: 100%;
+      max-width: 600px;
+      margin: 2rem auto;
+      text-align: center;
+      font-weight: bold;
+      /* Initial font size; will be overridden by JavaScript */
+      font-size: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="dynamic-heading">Bags + Packs</h1>
+
+  <script>
+    function adjustFontSize(selector, options = {}) {
+      const elements = document.querySelectorAll(selector);
+      const {
+        minFontSize = 2, // in rem
+        maxFontSize = 5, // in rem
+        baseViewportWidth = 1000 // in pixels
+      } = options;
+
+      elements.forEach(el => {
+        const textLength = el.textContent.trim().length || 1;
+        const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+
+        // Calculate scaling factor based on viewport width
+        const scaleFactor = viewportWidth / baseViewportWidth;
+
+        // Calculate font size inversely proportional to text length
+        let fontSize = (maxFontSize * scaleFactor) / textLength;
+
+        // Clamp the font size between min and max values
+        fontSize = Math.max(minFontSize, Math.min(fontSize, maxFontSize));
+
+        // Apply the calculated font size
+        el.style.fontSize = `${fontSize}rem`;
+      });
+    }
+
+    // Initial adjustment
+    adjustFontSize('.dynamic-heading');
+
+    // Adjust on window resize
+    window.addEventListener('resize', () => {
+      adjustFontSize('.dynamic-heading');
+    });
+  </script>
+</body>
+</html>

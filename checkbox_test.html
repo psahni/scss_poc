@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Checkbox UI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #333;
+      color: white;
+      padding: 20px;
+    }
+    
+    .features-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #222;
+      border-radius: 8px;
+      padding: 20px;
+    }
+    
+    .features-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #444;
+      padding-bottom: 15px;
+    }
+    
+    .features-title {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    
+    .chevron {
+      font-size: 20px;
+    }
+    
+    .feature-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      cursor: pointer;
+    }
+    
+    .custom-checkbox {
+      width: 22px;
+      height: 22px;
+      border: 2px solid #888;
+      display: inline-block;
+      position: relative;
+      margin-right: 15px;
+      background-color: transparent;
+      transition: background-color 0.2s;
+    }
+    
+    .feature-item.selected .custom-checkbox {
+      background-color: #000;
+      border-color: #aaa;
+    }
+    
+    .feature-label {
+      font-size: 18px;
+    }
+    
+    .count {
+      color: #aaa;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="features-container">
+    <div class="features-header">
+      <span class="features-title">Features</span>
+      <span class="chevron">▼</span>
+    </div>
+    
+    <div class="feature-item" onclick="this.classList.toggle('selected')">
+      <div class="custom-checkbox"></div>
+      <span class="feature-label">Waterproof</span>
+      <span class="count">(20)</span>
+    </div>
+    
+    <div class="feature-item" onclick="this.classList.toggle('selected')">
+      <div class="custom-checkbox"></div>
+      <span class="feature-label">Composite Safety Toe</span>
+      <span class="count">(20)</span>
+    </div>
+    
+    <div class="feature-item" onclick="this.classList.toggle('selected')">
+      <div class="custom-checkbox"></div>
+      <span class="feature-label">ASTM Certified</span>
+      <span class="count">(20)</span>
+    </div>
+    
+    <div class="feature-item" onclick="this.classList.toggle('selected')">
+      <div class="custom-checkbox"></div>
+      <span class="feature-label">Side Zip</span>
+      <span class="count">(20)</span>
+    </div>
+    
+    <div class="feature-item" onclick="this.classList.toggle('selected')">
+      <div class="custom-checkbox"></div>
+      <span class="feature-label">Vibram Outsole</span>
+      <span class="count">(20)</span>
+    </div>
+    
+    <div class="feature-item" onclick="this.classList.toggle('selected')">
+      <div class="custom-checkbox"></div>
+      <span class="feature-label">Slip Resistant</span>
+      <span class="count">(20)</span>
+    </div>
+  </div>
+</body>
+</html>
