@@ -1,0 +1,79 @@
+<html>
+  <body>
+    <main>
+      <p><strong>This layout has a max-width.</strong> Child contents are contained within.</p>
+      <p>However, the following container <em>ignores</em> the max-width and becomes full bleed.</p>
+      <div class="pdp-layout">
+        <div class="images">
+          <img src="https://images.unsplash.com/photo-1749716491521-af90e3b6feb6?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NTA3ODQ5ODh8&ixlib=rb-4.1.0&q=85" alt="">
+          <img src="https://images.unsplash.com/photo-1748803798997-4e5efea2c9c5?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NTA3ODQ5ODh8&ixlib=rb-4.1.0&q=85" alt="">
+        </div>
+        <div class="product-details">
+          <div class="wrapper">
+            <h1>Product details</h1>
+            <p>Image gallery and product details are divided 50/50 while the product details has a max-width equal to half of the page max-width.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+  <style>
+  :root {
+    --container-width: 108rem;
+    --page-margin: clamp(1rem, 0.318rem + 3.41vw, 4rem);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    overflow-x: clip;
+    margin: 0;
+    font-size: 1.25rem;
+  }
+
+  main {
+    max-inline-size: var(--container-width);
+    margin-inline: auto;
+    padding-inline: var(--page-margin);
+  }
+
+    .pdp-layout {
+      display: flex;
+      flex-wrap: wrap;
+      position: relative;
+      inset-inline: 50%;
+      inline-size: 100dvi;
+      margin-inline: -50dvi;
+
+      > * {
+        /*divide immediate children into 50/50 until it hits 30ch, then it's single column*/
+        flex: 1 1 30ch;
+      }
+    }
+
+    .images {
+      img {
+        display: block;
+        inline-size: 100%;
+        max-inline-size: 100%;
+        block-size: auto;
+        aspect-ratio: 3/4;
+        object-fit: cover;
+      }
+    }
+
+  .product-details {
+    position: sticky;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+    padding-inline: var(--page-margin);
+
+    .wrapper {
+      /*max-width equal to half of page max-width */
+      max-inline-size: calc(var(--container-width) / 2 - var(--page-margin) * 2);
+    }
+  }
+  </style>
+</html>

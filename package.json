@@ -9,7 +9,7 @@
     "sass:watch": "node-sass src/scss/style.scss dist/css/style.css --watch",
     "build": "node-sass src/scss/style.scss dist/css/style.css --output-style compressed",
     "dev": "nodemon --watch src/scss -e scss -x \"npm run sass\" & python3 -m http.server 4000",
-    "server": "python3 -m http.server 4000"
+    "server": "python3 -m http.server 3001"
   },
   "keywords": [],
   "author": "",

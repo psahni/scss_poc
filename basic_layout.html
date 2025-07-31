@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Basic Layout</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  </head>
+  <style>
+    html {
+      height: 100%;
+      box-sizing: border-box;
+    }
+
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: black;
+      margin: 0;
+      padding: 45px;
+      font-family: 'Roboto', sans-serif;
+      height: 100vh;
+      color: white;
+    }
+
+    .content {
+      background-color: white;
+      color: black;
+    }
+
+    .text-component {
+      background-color: yellow;
+      width: 100%;
+      display: flex;
+      padding: 15px;
+      border: 2px solid green;
+    }
+
+    .heading {
+      color: brown;
+      font-size: 24px;
+      margin: 0;
+      padding: 20px;
+      border: 2px solid black;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <div class="text-component">
+      <h3 class="heading">This is a black content box inside a white background body.</h3>
+      <h3 class="heading">This is a black content box inside a white background body.</h3>
+    </div>
+  </div>
+  <div style="font-size: 40px;margin-top: 10px;">
+    Body Content 1
+  </div>
+  <div style="font-size: 40px;margin-top: 10px;">
+    Body Content 2
+  </div>
+</body>
+</html>
